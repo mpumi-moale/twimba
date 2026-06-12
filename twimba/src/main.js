@@ -34,7 +34,7 @@ function getFeedHtml() {
           </div>
         `
   }
-  console.log(feedHtml)
+  return feedHtml
 }
 
 getFeedHtml()
