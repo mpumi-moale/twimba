@@ -7,17 +7,20 @@ tweetBtn.addEventListener('click', function() {
   console.log(tweetInput.value)
 })
 
+// listens to any click on the browser
 document.addEventListener('click',function(e) {
+  // targets only the heart icon using html data-attributes
   if(e.target.dataset.heart) {
     handleLikeClick(e.target.dataset.heart)
   }
 })
 
 function handleLikeClick(tweetId) {
-
+  // gets the first object from the array
   const targetTweetObj = tweetsData.filter(function(tweet) {
     return tweet.uuid === tweetId
   })[0]
+  // increaments likes
   targetTweetObj.likes++
   render()
 }
@@ -55,6 +58,7 @@ function getFeedHtml() {
   return feedHtml
 }
 
+// show on the browser
 function render() {
   const feed = document.getElementById('feed')
 
