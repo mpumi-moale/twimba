@@ -1,4 +1,1 @@
-# CDN
-https://cdnjs.com/
-# icons
-https://fontawesome.com/
+"# twimba, twitter or x clone"
