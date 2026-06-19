@@ -7,6 +7,10 @@ tweetBtn.addEventListener('click', function() {
   console.log(tweetInput.value)
 })
 
+document.addEventListener('click',function(e) {
+  console.log(e.target.dataset.heart)
+})
+
 function getFeedHtml() {
   let feedHtml = ``
 
