@@ -9,15 +9,19 @@ tweetBtn.addEventListener('click', function() {
 
 // listens to any click on the browser
 document.addEventListener('click',function(e) {
+
   // targets only the heart icon using html data-attributes
   if(e.target.dataset.heart) {
     handleLikeClick(e.target.dataset.heart)
   } else if(e.target.dataset.retweet) {
     handleRetweetClick(e.target.dataset.retweet)
-  }
+  }else if(e.target.dataset.reply){
+        handleReplyClick(e.target.dataset.reply)
+    }
 
 })
 
+// likes
 function handleLikeClick(tweetId) {
   // gets the first object from the array
   const targetTweetObj = tweetsData.filter(function(tweet) {
@@ -35,6 +39,7 @@ function handleLikeClick(tweetId) {
   render()
 }
 
+// retweets
 function handleRetweetClick(tweetId){
   
   const targetTweetObj = tweetsData.filter(function(tweet) {
@@ -51,6 +56,13 @@ function handleRetweetClick(tweetId){
   render()  
 }
 
+// comments
+function handleReplyClick(replyId) {
+  // document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
+  document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
+}
+
+// feeds
 function getFeedHtml() {
   let feedHtml = ``
 
@@ -114,7 +126,7 @@ function getFeedHtml() {
                       </div>   
                   </div>            
               </div>
-              
+
               <div id="replies-${tweet.uuid}">
                 ${repliesHtml}
                </div>
