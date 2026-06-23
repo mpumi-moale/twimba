@@ -1,4 +1,10 @@
 import { tweetsData } from "./data";
+// import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+// console.log(uuidv4())
+// import uuid from 'https://cdn.jsdelivr.net/npm/uuid@14.0.1/+esm'
+// console.log(uuid)
+import { v4 as uuidv4 } from 'uuid';
+console.log(uuidv4())
 
 const tweetInput = document.getElementById('tweet-input')
 const tweetBtn = document.getElementById('tweet-btn')
