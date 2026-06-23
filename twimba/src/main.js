@@ -70,6 +70,26 @@ function getFeedHtml() {
       retweetIconClass = 'retweeted'
     }
 
+    let repliesHtml = ``
+
+    // loops through the replies array and append html to it
+    if(tweet.replies.length > 0) {
+      tweet.replies.forEach(function(repley) {
+        repliesHtml += `
+        <div class="tweet-reply">
+                <div class="tweet-inner">
+                    <img src="${repley.profilePic}" class="profile-pic">
+                <div>
+                    <p class="handle">${repley.handle}</p>
+                    <p class="tweet-text">${repley.tweetText}</p>
+                </div>
+            </div>
+            </div>
+        
+        `
+      })
+    }
+
     
     feedHtml += `
             <div class="tweet">
@@ -94,6 +114,10 @@ function getFeedHtml() {
                       </div>   
                   </div>            
               </div>
+              
+              <div id="replies-${tweet.uuid}">
+                ${repliesHtml}
+               </div>
           </div>
         `
   })
