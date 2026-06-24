@@ -1,17 +1,5 @@
 import { tweetsData } from "./data";
-// import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-// console.log(uuidv4())
-// import uuid from 'https://cdn.jsdelivr.net/npm/uuid@14.0.1/+esm'
-// console.log(uuid)
 import { v4 as uuidv4 } from 'uuid';
-console.log(uuidv4())
-
-const tweetInput = document.getElementById('tweet-input')
-const tweetBtn = document.getElementById('tweet-btn')
-
-tweetBtn.addEventListener('click', function() {
-  console.log(tweetInput.value)
-})
 
 // listens to any click on the browser
 document.addEventListener('click',function(e) {
@@ -73,9 +61,24 @@ function handleReplyClick(replyId) {
   document.getElementById(`replies-${replyId}`).classList.toggle('hidden')
 }
 
-// tweet button
+// new tweet object
 function handleTweetBtnClick() {
-  console.log(tweetBtn.value)
+  const tweetInput = document.getElementById('tweet-input')
+
+      if(tweetInput.value) {
+        tweetsData.unshift({
+        handle: `@Black`,
+        profilePic: `./src/assets/scrimbalogo.png`,
+        likes: 0,
+        retweets: 0,
+        tweetText: tweetInput.value,
+        replies: [],
+        isLiked: false,
+        isRetweeted: false,
+        uuid: uuidv4(),
+      })
+      render()
+      }
 }
 
 // feeds
