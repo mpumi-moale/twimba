@@ -66,18 +66,19 @@ function handleTweetBtnClick() {
   const tweetInput = document.getElementById('tweet-input')
 
       if(tweetInput.value) {
-        tweetsData.unshift({
-        handle: `@Black`,
-        profilePic: `./src/assets/scrimbalogo.png`,
-        likes: 0,
-        retweets: 0,
-        tweetText: tweetInput.value,
-        replies: [],
-        isLiked: false,
-        isRetweeted: false,
-        uuid: uuidv4(),
+          tweetsData.unshift({
+          handle: `@Black`,
+          profilePic: `./src/assets/scrimbalogo.png`,
+          likes: 0,
+          retweets: 0,
+          tweetText: tweetInput.value,
+          replies: [],
+          isLiked: false,
+          isRetweeted: false,
+          uuid: uuidv4(),
       })
       render()
+      tweetInput.value = ''
       }
 }
 
